@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#container{
+    width: 80vw;
+    height: 80vh;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square{
+    border: 1px solid red;
+    background-color: white;
+    width: calc(100% / 16);
+    height: calc(100% / 16);
+}
+
+.square:hover{
+    background-color: black;
+}
