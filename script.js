@@ -1,20 +1,26 @@
-// Create a webpage with a 16x16 grid of square divs
-let totalSquares = 16 * 16
 // get container div
 const container = document.getElementById("container")
-// get numOfSquares button
-const numOfSquares = document.getElementById("numOfSquares")
+let totalSquares = 16 ** 2
+let squarePerSide = 16
+// function to display grid squares
+function setGrid(squarePerSide){
+    for(let i = 0; i < totalSquares; i++){
+        let square = document.createElement('div')
+        square.style.outline = "1px solid red"
+        square.style.flexBasis = `calc(100% / ${squarePerSide})`
+        square.style.height = `calc(100% / ${squarePerSide})`
+        container.appendChild(square)
 
-// create a loop to generate 16x16 grid of square
-for(let i = 0; i < totalSquares; i++){
-    let square = document.createElement('div');
-    // add class attribute to style each square
-    square.classList.add('square');
-    // add each square created to container div
-    container.appendChild(square)
-    
+        // add event listener to all box
+        square.addEventListener('mouseenter',()=>{
+            square.style.backgroundColor = "black"
+        })
+        // remove event listener when mouse goes out of all divs
+        square.addEventListener('mouseout', ()=>{
+            square.style.backgroundColor = ""
+        })
+         container.appendChild(square)
+    }
 }
 
-// Add a button on the top of the screen that will send the user a popup asking for the number of squares per side for the new grid. Once entered, the existing grid should be removed, and a new grid should be generated in the same total space as before (e.g., 960px wide) so that you’ve got a new sketch pad.
-
-// add event listener to numOfSquares button
+setGrid(squarePerSide)
